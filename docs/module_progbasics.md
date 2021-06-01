@@ -5,13 +5,20 @@
 ### Data structures
 
 #### What is the purpose of a list (array in some programming languages) data structure? Name some methods of it!
+
+#its porpuse is to store data/variables. It has the append(), remove(), sort(), count() methods that are for adding a new element to the list, remove an element from the list, sort the list by its elements value, and count the elements in the list that satisfies the input criteria
+
 #### What is the difference between a list/array and a set?
+
+#while a list/array stores the values we add in automaticly the set only adds a value to the set if that value is not already in the set. It ignores if we add in a duplicate.
+
 #### What is the purpose and methods of a dictionary/map data structure?
 
 ### Algorithms
 
 #### Fibonacci sequences. Write a method (or pseudo code), that generates the Fibonacci sequences.
 #### How do you find a max value in a list/array if you can’t use any built-in functions?
+
 #### How do you find the average of values in a list/array if you can’t use any built-in functions?
 #### What do we call an *in-place* sort?
 #### Explain an algorithm which sorts a list!
