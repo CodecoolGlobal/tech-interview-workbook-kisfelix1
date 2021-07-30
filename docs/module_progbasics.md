@@ -73,11 +73,47 @@ name, parameters, the actual code/body
 
 ### Programming languages - Python
 #### How do you use a dictionary in Python?
+
+you cannot index it by order, because it is unordered. You can find values by indexing by the key. you can index key-value pairs by iterating through a loop. you can add new key by dictionary[key] = value, and add to it by dictionary[key] += add_value
+
 #### What does it mean that an object is immutable in Python?
+
+it means that its value cannot be changed. string is immutable, list is mutable
+
+
 #### What is conditional expression in Python?
+
+operators that evaluate something based on a condition being true or false.
+if condition1 and condition2:
+else:
+
 #### What are different types of arguments in Python?
+
+default arguments. def function(default='def')  -  if no parameter is passed when it's called, then the defined value will be in effect - order: non-default, default
+
+keyword arguments. def function(a, b, default='def') - function(default=10, a=10, b=15) order is not important
+
+positional arguments. def function(a, b, c) - function(10, 20, 30) or function(10, c=30, b=20) 
+
+arbitrary positional arguments. def function(*a) - a acts as a tuple -- function (10, 20, 30, 40)- 
+for i in a:
+   sum += i
+
+arbitrary keyword arguments. def function(**a)
+   a holds dictionary values
+
+a function can look like this:
+def function(pos1, pos2, /, pos_or_kwd, *, kwd_only):
+before / pos only, after / pos or kwd, after * kwd only
+
 #### What is variable shadowing? (context: variable scope)
+
+it means that on the outer scope x is defined and in the inner scope with the same name we define x again. Though it has the same name, the original(outer) x's value doesn't change, because we have another instance defined locally. if we DO want to redefine x, we use the nonlocal x keyword. We can also use global x keyword to use it on only global variables
+
 #### What can happen if you try to delete/drop/add an item from a List, while you are iterating over it in Python?
+
+it doesnt return any value (None), when deleting if I give invalid parameter, it will throw an exception(ValueError) if not in list.
+
 #### What is the "golden rule" of variable scoping in Python (context: LEGB)? What is the lifetime of variables?
 #### If you need to access the iterator variable after a for loop, how would you do it in Python?
 #### What type of elements can a list contain in Python?
@@ -115,6 +151,7 @@ name, parameters, the actual code/body
 ### Clean code
 
 #### What does clean code mean?
+It means
 #### What steps do we usually do during a clean code refactoring?
 
 ### Error handling
