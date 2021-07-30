@@ -115,24 +115,53 @@ it means that on the outer scope x is defined and in the inner scope with the sa
 it doesnt return any value (None), when deleting if I give invalid parameter, it will throw an exception(ValueError) if not in list.
 
 #### What is the "golden rule" of variable scoping in Python (context: LEGB)? What is the lifetime of variables?
+LEGB: Local, Enclosing, Global, and Built-in these are scopes in a program
+local is inside a function, like lambda, and is only visible inside the function
+enclosing: in nested functions the names in the enclosing scope are visible from the code of the inner and enclosing functions.
+global: This Python scope contains all of the names that you define at the top level of a program or a module.
 #### If you need to access the iterator variable after a for loop, how would you do it in Python?
+i would create a variable outside the loop and copy the value of the iterator inside the loop
 #### What type of elements can a list contain in Python?
+basically any. Bool, int, float, string, list, tuple, dictionary, object.
 #### What is slice operator in Python and how to use?
+slice defines a series of numbers, that can be used to index and 'slice' any indexable data structure. 
+slice_to_use = slice(2)
+a = 'apple'
+b = a[slice_to_use]
+b is 'ap'
+slice(start, end, step)
+start is optional, end is mandatory, step is optional.
 #### What arithmetic operators (+,*,-,/) can be used on lists in Python? What do they do?
 #### What is the purpose of the in and not in membership operators in Python?
+it can be used to identify elements inside a list. for i in list:
+it can also be used as an operator to decide if an element is in a list
+print('apple' not in fruits)
 #### What does the + operator mean when used with strings in Python?
+it means to append the value.
+'app' + 'le' = apple
 #### Explain f strings in Python?
+it s a string f"{variable}" that can include variable names and change its value accordingly
 #### Name 4 iterable types in Python!
+dictionary, tuple, list, set, string
 #### What is the difference between list/set/dictionary comprehension and a generator expression in Python?
+[expression for item in iterable if conditional] generator expression - generates in advance
+(expression for item in iterable if conditional) list comprehension - generates on demand
+generator expressions are more elegant, and time efficient 
 #### Does the order of the function definitions matter in Python? Why?
+Yes. You can't call a function that doesn't exist yet, because the program runs 
 #### What does unpacking mean in Python?
+(a, b, c) = (1, 2, 3)
+*a, = 1, 2
+it means that in one expression you can assign values to multiple variables
 #### What happens when you try to assign the result of a function which has no return statement to a variable in Python?
-
+it implicitly returns None
 ## Software engineering
 
 ### Debugging
 
 #### What techniques can you use while debugging a program in Python?
+You can print out values manually,
+you can use the debugger, and see all the active variables values in the debugging window
 #### What does step over, step into and step out mean while using the debugger?
 #### How can you start to debug a program from a certain line using the debugger?
 
@@ -151,33 +180,82 @@ it doesnt return any value (None), when deleting if I give invalid parameter, it
 ### Clean code
 
 #### What does clean code mean?
-It means
+- there are no duplications in the code
+- there is no dead code in the code
+- the variable and function names are meaningful and well organized
+- there are no lines that could have been obviously substitued by and expression
+- functions are simple, and understandable, preferably doing one thing at once
 #### What steps do we usually do during a clean code refactoring?
-
+- we realize that there is code smell
+- we make an effort to make the code clean
+- we test that the functionality of the code didn't change, the program works the same as before
+- commit the changes
 ### Error handling
 
 #### What is exception handling?
+It is when the program would normally crash and the programmer tries to prevent it and finally handle it while the program is still running, by incorporatin proper lines in the code
 #### What are the basics of exception handling in Python?
-#### In which case should we catch an exception? Why?
-#### What can/should we do with an exception in the ‘except’ block?
-#### What does the else and finally statement do in a try-except block in Python?
 
+syntax
+try:
+   code
+except TypeOfError:
+   code
+else:
+   code
+finally:
+   code
+after the exception happens no lines will be exectued in the try block
+if we dont give type of error, all exceptions will be cought
+#### In which case should we catch an exception? Why?
+We should catch an error if we know what to do with it
+#### What can/should we do with an exception in the ‘except’ block?
+give some feedback to the user, orother programs, maybe return something.
+Or catch additional errors and try to fix it
+#### What does the else and finally statement do in a try-except block in Python?
+else: runs if no exceptions are cought in the try block
+finally: runs at the end of the blocks no matter what
 ## Software Development Methodologies
 
 #### What is the main goal of a retrospective meeting?
-
+it is to evaluate its past working cycle at the end of an agile sprint
 ## Programming environment
 
 ### Unix
 
 #### What is UNIX and what is Linux?
+UNIX   is an operating system written in C. It has a CLI. Mutli-user multitasking, and can be used as a master control program in workstations and servers.
+Linux is an operating system. Multithreading multitasking, more portable, can coexist with other operating systems. It is a replica of UNIX, but it does not use its code
 #### What do we call the shell in Linux?
+Bash
 #### What does root means in a Linux environment?
+s the user name or account that by default has access to all commands and files on a Linux
 #### How do you access your personal files in Linux?
+/home/username
 #### How can you install an application in Linux?
+sudo apt-get install [application name]
 #### What is package management in Linux, what are repositories?
+A Linux repository is a storage location from which your system retrieves and installs OS updates and applications.
+Package management is a method of installing, updating, removing, and keeping track of software updates from specific repositories (repos) in the Linux system.
 #### How do you navigate in the filesystem with the command line?
+ls - view list of file names
+pwd - print working directory - directory you are currently working with
+cd - change directory
+cd .. go up a directory
+cat - open file
 #### What does the following commands do: mkdir, rm, cat, cp, touch?
+mkdir - create a directory
+rm - delete file
+cat - open file, read file in 
+cp - copy file to another location
+touch - create file
 #### How can you look up what does a command do in Linux if you have no internet connection?
+command -help
 #### What does the following commands do: head, tail, more, less?
+more filename : show the document one page at a time
+less filename : is much the same as more command except you can navigate the page up/down using the less command and not possible in more command.
+tail -n filename : display the last n lines of the file3
+head -15 myfile.txt – Would display the first fifteen lines of myfile.txt.
 #### How do you download a file from internet using the terminal?
+wget  -O /[location]/NewFileName "[url]"
+will download the file in the url to /h[location] and give it your NewFileName name.
