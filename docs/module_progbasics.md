@@ -6,7 +6,7 @@
 
 #### What is the purpose of a list (array in some programming languages) data structure? Name some methods of it!
 
-#its porpuse is to store data/variables. It has the append(), remove(), sort(), count() methods that are for adding a new element to the list, remove an element from the list, sort the list by its elements value, and count the elements in the list that satisfies the input criteria
+#its purpose is to store data/variables. It has the append(), remove(), sort(), count() methods that are for adding a new element to the list, remove an element from the list, sort the list by its elements value, and count the elements in the list that satisfies the input criteria
 
 #### What is the difference between a list/array and a set?
 
@@ -31,8 +31,21 @@
 
 ### Programming languages - Python  
 #### How do you use a dictionary in Python?
+# you can iterate it by dictionary = dict()
+# you can add keys to it by dictionary["key"] = value or the update(method)
+# you can add to its values by +=
+# you can search in it by key dictionary["key"] but not by index
+# you can remove tfrom it by the pop("key") method
+# you can iterate through its keys, values, or both
+
 #### What does it mean that an object is immutable in Python?
+
+# it means that the objects values cannot be changed. I.e: tuple
+
 #### What is conditional expression in Python?
+
+# it is an expression that can control what happens if a condition meets its criteria
+
 #### What are different types of arguments in Python?
 #### What is variable shadowing? (context: variable scope)
 #### What can happen if you try to delete/drop/add an item from a List, while you are iterating over it in Python?
@@ -44,6 +57,10 @@
 #### What is the purpose of the in and not in membership operators in Python?
 #### What does the + operator mean when used with strings in Python?
 #### Explain f strings in Python?
+
+#  it is a string that can include variable names and change it's characters accordingly
+
+
 #### Name 4 iterable types in Python!
 #### What is the difference between list/set/dictionary comprehension and a generator expression in Python?
 #### Does the order of the function definitions matter in Python? Why?
@@ -73,15 +90,50 @@
 ### Clean code
 
 #### What does clean code mean?
+
+# clean code means: 
+# - there are no duplications in the code
+# - there is no dead code in the code
+# - the variable and function names are meaningful and well organized
+# - there are no lines in the code that could have been obviously substituted by an expression
+# - the code is well structured and the functions are simple and understandable, no functions do more than one or two things
+
 #### What steps do we usually do during a clean code refactoring?
+
+# - we realize what lines of the code smell
+# - we make an effort to make the code clean
+# - we test it that the functionality of the code didn't change and the program works the same as before
+# - (optional) commit the changes
 
 ### Error handling
 
 #### What is exception handling?
+
+# It is when the program would normally crash and the programmer tries to prevent it and finally handle it while the program is still running, by incorporating proper lines in the code
+
+
 #### What are the basics of exception handling in Python?
+
+# it has a syntax: 
+# try:
+#     piece of code
+# except: TypeOfError
+#	code when error occurs
+# and it has an order: the line at which the error occurs, and the lines after that(but inside the try statement) don't run, the lines inside the except statement will run instead.
+# after the except we should give a type of error, if we don't we we'll handle all of the errors
+
 #### In which case should we catch an exception? Why?
+
+# we should catch and exception if we know what to do with it. Otherwise the code will be unmaintainable, and logically unordered
+
 #### What can/should we do with an exception in the ‘except’ block?
+
+# we can catch it inside or outside the except block as well.
+
+
 #### What does the else and finally statement do in a try-except block in Python?
+
+# the else block will run if there are no exception raised in the try block, the finally will run regardless if there were any exceptions raised.
 
 ## Software Development Methodologies
 
