@@ -195,7 +195,11 @@ it implicitly returns None
 You can print out values manually,
 you can use the debugger, and see all the active variables values in the debugging window
 #### What does step over, step into and step out mean while using the debugger?
+step over will go onto the next line but will not descend into method calls
+step into will descend in any method call
+step out will go to the next return or equivalent
 #### How can you start to debug a program from a certain line using the debugger?
+place a debug dot on the line you want to start from and press the run and debug button 
 
 ### Version control
 
@@ -210,11 +214,21 @@ The repository is an abstract thing. The local repository are the files you have
 the remote repository is the version of the files everyone sees, and is not on your computer, but in a sharing server (in most cases). 
 you can commit 
 #### What are remote repositories in git?
-remote repositorories 
+remote repositorories are repositories on remote servers from which you can pull into your local one. it is the 'official' version of your code
 #### Why does a merge conflict occur?
+merge conflict occurs when the remote repository and the pushing local one is diffrerent, not in length but in content
 #### Through what series of commands could you put a new file into a remote repository connected to your existing local repository?
+git pull
+fix merge conflicts
+git add -A
+git commit -m "commit message"
+git push
 #### What does it mean atomic commits and descriptive commit messages?
+atomic commits are single functional code snippets you included into your commit. It means that it works, it is irreducably miniature, and clear.
+Descriptive commit messages are messages that are clear and simple. it should reflect the changes you made to the code, but remain clear, and not too in depth
 #### What’s the difference between git and GitHub?
+git is the technology with which you can control the versions.
+Github is the platform that can handle git files.
 
 ## Software design
 
