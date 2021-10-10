@@ -6,59 +6,59 @@
 
 #### Point out 5 suggestions, how to format an SQL query!
 
-# - keep capitalization consistent - if you do a query capitalized then keep to that rule at the other.
-# - don't write a query in one line - each statement, clause should be in a new line in order to prevent too long/hard to read lines in code
-# - don't use f strings to format queries, to insert variables use sql.SQL() or the execute(, dict)
-# - indent statements, operators, variables properly
-# - name tables, variables properly - CityName is not right, all lowercase is the proper way, and underscores - city_name
+ - keep capitalization consistent - if you do a query capitalized then keep to that rule at the other.
+ - don't write a query in one line - each statement, clause should be in a new line in order to prevent too long/hard to read lines in code
+ - don't use f strings to format queries, to insert variables use sql.SQL() or the execute(, dict)
+ - indent statements, operators, variables properly
+ - name tables, variables properly - CityName is not right, all lowercase is the proper way, and underscores - city_name
 
 
 
 #### What layers can you name in a simple web application?
 
-# server layer - the user "interacts" with this layer, it handles routes and basic orders
-# data_manager - it solves the problem of dealing with data. It manipulates data, deletes, inserts, edits. 
-# database_common - it creates connection to the database on your system - from orders from datamanager it handles cursor and connection
+ server layer - the user "interacts" with this layer, it handles routes and basic orders
+ data_manager - it solves the problem of dealing with data. It manipulates data, deletes, inserts, edits. 
+ database_common - it creates connection to the database on your system - from orders from datamanager it handles cursor and connection
 
 ### Error handling
 #### What error can occur, when an array does not have an element on the requested index?
 
-# out of index range error
+out of index range error
 
 #### What is the “finally” block, and how would you use it?
 
-# it is a block inside try catch mechanics, it runs either if the catch catches an error. 
-# I would use it when I try to get all data from a database, i try to get an element by id and it doesnt exist, 
-# but even if i got the id right i want to display all the data - with or without it
+it is a block inside try catch mechanics, it runs either if the catch catches an error. 
+I would use it when I try to get all data from a database, i try to get an element by id and it doesnt exist, 
+but even if i got the id right i want to display all the data - with or without it
 
 #### Why should we catch special exception types?
 
-# so we know exactly what went wrong - if the user provided an incorrect username or a database isnt online.
+so we know exactly what went wrong - if the user provided an incorrect username or a database isnt online.
 
 
 ### Security
 #### What is SQL injection? How to protect an application against it?
 
-# an sql injection is when a user doesnt use input fields properly, and inputs sql commands which break the database or steal sensitive user data
-# an application can be protected by writing sql queries in a secure way inside the application. Frameworks usually have their own solutions to this problem. 
+an sql injection is when a user doesnt use input fields properly, and inputs sql commands which break the database or steal sensitive user data
+an application can be protected by writing sql queries in a secure way inside the application. Frameworks usually have their own solutions to this problem. 
 
 
 #### What is XSS? How to protect an application against it? ----------------------------------------------------
 #### How to properly store passwords?
 
-# store not the password, but the encrypted version of it inside the database. it usually has a decrypt method to it.
+store not the password, but the encrypted version of it inside the database. it usually has a decrypt method to it.
 
 #### What is HTTPS?
 
-# a secure protocol - HTTP alternative, which can store sensitive data without or at least lesser security risks
+a secure protocol - HTTP alternative, which can store sensitive data without or at least lesser security risks
 
 #### What is encryption and decryption?
 
-# encryption is when from a string we create a hard to read string that we can decrypt back to the original string using an encryption algorithm
+encryption is when from a string we create a hard to read string that we can decrypt back to the original string using an encryption algorithm
 
 #### What is hashing?
 
-# the process of transforming any given key or a string of characters into another value
+the process of transforming any given key or a string of characters into another value
 
 #### What is the difference between encryption and hashing? When would you use which?
 
@@ -74,28 +74,28 @@
 
 #### What is the difference between Stack and Queue data structure?
 
-# stack is based on LIFO  principle, queue is on FIFO
-# insert/delete is from top, queue delete is from front, insert is from rear
-# stacks are for recursion, queues are for linear processing
+stack is based on LIFO  principle, queue is on FIFO
+insert/delete is from top, queue delete is from front, insert is from rear
+stacks are for recursion, queues are for linear processing
 
 #### What is BubbleSort? Describe the main logic of this sorting algorithm.
 
-#bubblesort is a sorting algorithm.
-# it iterates over a list and checks the elements, and if one is not in its place then it places on the last index and recurse.
-# this way the biggest value will "come on top" like a bubble, hence the name
+bubblesort is a sorting algorithm.
+it iterates over a list and checks the elements, and if one is not in its place then it places on the last index and recurse.
+this way the biggest value will "come on top" like a bubble, hence the name
 
 #### Explain the process of finding the maximum and minimum value in a list of numbers!
 
-# we declare a variable outside the loop
-# we iterate over the list, and check if the iterated value is bigger/smaller than the declared one.
-# if it is, we change it to the iterated value
+we declare a variable outside the loop
+we iterate over the list, and check if the iterated value is bigger/smaller than the declared one.
+if it is, we change it to the iterated value
 
 #### Explain the process of calculating the average value in an array of numbers!
 
 
-# we declare a variable outside the loop called sum
-# we iterate over the list, and add to the sum
-# at the end, we divide the sum by the number of numbers in the list
+ we declare a variable outside the loop called sum
+ we iterate over the list, and add to the sum
+ at the end, we divide the sum by the number of numbers in the list
 
 #### What is Big O complexity? Explain time and space complexity! -----------------------------------------
 
@@ -200,7 +200,9 @@
 #### What kind of software development methodologies do you know? What are the main features of these?
 #### What are the SCRUM roles?
 
-# scrum master - 
+scrum master - helps and leads the development with scrum
+product owner - 
+scrum team - 
 #### What are the SCRUM ceremonies?
 #### What are the SCRUM artifacts?
 #### What is the main goal of a retrospective meeting?
