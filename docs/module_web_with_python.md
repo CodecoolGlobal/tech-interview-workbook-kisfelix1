@@ -113,12 +113,34 @@ if it is, we change it to the iterated value
 
 ### Functional
 #### What is recursion?
+recursion is when a function calls itself inside the function, thus creating a loop of function calls
 #### Write a recursive function which calculates the Fibonacci numbers!
+function fiboncaci(num):
+	if num == 0:
+		return 0
+	elif num == 1:
+		return 1
+	else:
+		return fibonacci(num-1)+fibonaci(num-2)
 #### How to store a function in a variable in Python?
+def val():
+	return 5
+	
+func = val() // 5 lesz az értéke 
+func = val // magát a függvényt tárolja el
 #### List the ways of defining a callable logical unit in JavaScript!
+function a(){}
+var a = function a(){}
+var a = {function a(): {return 0}}
+var add = (num1, num2)=> num1+num2; 
+
 #### What is an event listener? How to attach one?
+event listener is waiting for an event and it is called when that event happens
+hmtlObject.addEventListener('event', function)
 #### How to trigger an event in JavaScript?
 #### What is a callback function? Tell some examples of its usage.
+a callback function is a function passed as a parameter of another fucntion
+examples are eventlisteners: a function is run when an event occurs and it is passe das a paramter
 #### What is a Python decorator? How does it work? Tell some examples of its usage.
 #### What is the difference between synchronous and asynchronous execution?
 
@@ -142,21 +164,42 @@ if it is, we change it to the iterated value
 ### HTML & CSS
 
 #### What’s the difference between XML, XHTML and HTML?
+HTML is a markup language to give the browser orders what to do and how to do it
+XML is a way to store data and allow communication between programs
+XHTML is an XML based HTML, it is the same as HTML but with the rules of XML
 #### How to include a JavaScript file in a webpage?
+<script src="myscripts.js"></script>
+<script>console.log('This is how');</script>
+
 #### How to include a CSS file in a webpage?
+<link rel="stylesheet" href="styles.css">
+into the head
 #### How to select an element using its id in CSS?
+#elementId
+
 #### How to select elements using their class in CSS?
+.elementClass
 #### How to select elements which have the ‘alpha’ and ‘beta’ classes in CSS?
+.apha .beta
 #### How to select all list items in all ordered lists on the page in CSS?
+ul li
 #### How to select elements using their attributes in CSS?
+[attribute]
 #### What are UX and UI?
+UX is user experience 
+UI is user interface
+UX is first then UI but nothing without the other
+Ux is waht a user wants to do on a page, ui is what they want to see
 #### Please list some points that an application should fulfill to have good UX.
 #### What is XML, XSLT, DTD?
 #### What is the difference between HTML and XML?
+HMTL is markup language that the browser  knows
+XML is a markup language that stores data and is for other pages to use
 
 ### Javascript
 
 #### What is javascript?
+it is the default scripting language for browsers, which can access most of the browsers functions
 #### When to use AJAX? Bring examples of its usage.
 #### What is DOM and how to manipulate it from Javascript?
 #### What are events and how/why to use them in Javascript?
@@ -168,17 +211,29 @@ if it is, we change it to the iterated value
 ### Version control
 
 #### What type of branching strategy would you use?
+I would make a different branch for every feature the end product has,  and when taht feature is done I would make a pull request to the development branch
 #### What would you do if you find a bug on the production code (master branch)?
+I would revert to the version which doesnt have the bug, make a different branch that aims to fix the bug and when thats done rebase
 #### How can you move changes from one branch to another in GIT?
+with rebase, or merge. If you want commits as well you use rebase
 #### How does a VCS help with code reviews?
+On code reviews this way the reviewer can have a better understanding of how the programmer worked
+The reviewee can share their code easier
+
 #### What is your favorite git command? Why?
+git merge, because that's why git is so useable. If you are working in a team and on different branches then you use this a lot
+and it really saves time compared to what you should do if you don't have this command
 #### What does remote/local mean in Git? 
+remote is what's on the online/not local repository(github servers for example)
+local means whats on your computer physically and not on the shared repository
 
 ### DevOps
 
 #### Why is it good to use a package manager software?
 #### Why is it good to use a virtual environment for a project?
 
+Because this way you can simulate different version of support programs than what's on your computer
+And because this way you can ensure that you work with the proper version - requirements.txt you can specify which version
 ### Networks
 
 #### What kind of HTTP status codes do you know?
