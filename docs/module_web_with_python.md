@@ -62,11 +62,20 @@ the process of transforming any given key or a string of characters into another
 
 #### What is the difference between encryption and hashing? When would you use which?
 
-
+Hashing is for indexing and retrieving items from the database very quickly. 
+The purpose of encryption is to transform data to keep it secret from others.
 
 #### What encryption methods do you know?
-#### What hashing methods do you know?---------------------------------------------------------------------------
+
+ceasar, RSA, 
+
+#### What hashing methods do you know?
+
+SHA
+
 #### How/where would you store sensitive data (like db password, API key, ...) of your application?
+
+environment variables, or a separate file outside of the scope of the application.
 
 ## Computer science
 
@@ -97,11 +106,34 @@ if it is, we change it to the iterated value
  we iterate over the list, and add to the sum
  at the end, we divide the sum by the number of numbers in the list
 
-#### What is Big O complexity? Explain time and space complexity! -----------------------------------------
+#### What is Big O complexity? Explain time and space complexity!
+
+Big O specifically describes the worst-case scenario, it is to describe how fast a program runs without specifying the processor or the order of the programs
+Time complexity is how elapsed time depends of the size of input.
+Space is similar to time, it demonstrates how much space (memory space) our program uses, dependently of the input
+O(1) means it is independent of the input
+O(n) means it is linear
+O(n^2) means it is  exponential
 
 ### Procedural
 #### How the CASE condition works in SQL?
+SELECT result_variable
+CASE
+    WHEN condition1 THEN result1
+END AS result_variable;
+
 #### How the switch-case condition works in JavaScript?
+
+switch(expression) {
+  case x:
+    code
+    break;
+  default:
+    code
+}
+
+it takes an expression, and if it equals a case then the proper line will run
+
 #### How to achieve a switch-case-like structure in Python?
 #### Explain variable scoping in Python!
 #### What’s the difference between const and var in JavaScript?
