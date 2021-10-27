@@ -158,15 +158,38 @@ otherwise its local, and it can be seen in the function only.
 the same with loops
 
 #### What’s the difference between const and var in JavaScript?
+
+const's value cannot be change
+and var's can, but it's outdated, use let instead
+
 #### How the list comprehension looks like in Python?
+
+newlist = [x for x in list if criteria]
+
 #### How the “ternary expression” looks like in Python?
+
+'true' if True else 'false'
+
 #### How the ternary expression looks like in JavaScript?
+
+condition ? exprIfTrue : exprIfFalse
+
 #### How to import a function from another module in Python?
+
+from folder import python_file
+or 
+from library import function
+
 #### How to import a function from another module in JavaScript?
+
+import { export1 } from "module-name";
+import "module-name";
 
 ### Functional
 #### What is recursion?
+
 recursion is when a function calls itself inside the function, thus creating a loop of function calls
+
 #### Write a recursive function which calculates the Fibonacci numbers!
 function fiboncaci(num):
 	if num == 0:
@@ -176,43 +199,109 @@ function fiboncaci(num):
 	else:
 		return fibonacci(num-1)+fibonaci(num-2)
 #### How to store a function in a variable in Python?
+
 def val():
 	return 5
 	
 func = val() // 5 lesz az értéke 
 func = val // magát a függvényt tárolja el
+
 #### List the ways of defining a callable logical unit in JavaScript!
+
 function a(){}
 var a = function a(){}
 var a = {function a(): {return 0}}
 var add = (num1, num2)=> num1+num2; 
 
 #### What is an event listener? How to attach one?
+
 event listener is waiting for an event and it is called when that event happens
 hmtlObject.addEventListener('event', function)
+
 #### How to trigger an event in JavaScript?
+
+element.fireEvent("on" + event.eventType, event);
+
 #### What is a callback function? Tell some examples of its usage.
+
 a callback function is a function passed as a parameter of another fucntion
-examples are eventlisteners: a function is run when an event occurs and it is passe das a paramter
+examples are eventlisteners: a function is run when an event occurs and it is passed as a paramter
+
 #### What is a Python decorator? How does it work? Tell some examples of its usage.
+
+------------------------------------------------------------------------------------------------------------------------
+
 #### What is the difference between synchronous and asynchronous execution?
+
+synchronous is run sequentially, line after line, asynchrnonous is run on a different 
 
 ## Programming languages
 
 ### SQL
 
 #### How can you connect your application to a database server? What are the possible ways?
+
+You could simply advertise your database connection address and port number on an open connection
+
+
 #### When do you use the DISTINCT keyword in SQL?
+
+With distinct you can obliterate matching results and only select them once
+
 #### Talk about the behavior/goal of these base SQL clauses: WHERE, GROUP BY, HAVING, ORDER BY?
+Where takes an expression which if true to a row it appends it to the result
+group by make rows sort of merge into matching data, which then hold a whole other lot of columns data
+having is when we want to give a criteria on the group rather than the data inside it
+order by takes a column name, it sorts the data by a certain column, if you give it multiple columns then it will sort in order of the columns. Also you can give desc or asc to the end
+
 #### What are aggregate functions in SQL? Give 3 examples.
+
+these are used with a group by, the data inside a group can be manipulated/selected according to the functions
+SUM
+COUNT
+min max, avg
+
+
 #### What kind of JOIN types do you know in SQL? Could you give examples?
+
+lefjoin
+right join
+inner join
+outer join
+this query will select all customers wether they have a sale or not(usually used when they surely do)
+select * 
+from customer left join sales on custumer.id = sales.customer_id;
+
 #### What are the constraints in sql?
+
+on a database you can constrain data, either tagging it as foreign key so you cannot just delete it because it has a relation,
+or constrain it so it can be of a certain type. 
+
 #### What is a cursor in SQL? Why would you use one?
+
+---------------------------------------------------------------------------
+
 #### What are database indexes? When to use?
+
+--------------------------------------------------------------------------
+
 #### What are database transactions? When to use?
+
+--------------------------------------------------------------------------
+
 #### What kind of database relations do you know? How to define them?
+these are to represent how data ina  table is coorelated to another table
+one-one
+many-many
+one-many
+
 #### You have a table with an “address” field which contains data like “3525, Miskolc, Régiposta 9.” (postcode, city, street name and address). How would you query all records related to Miskolc?
+select * from table
+where substring(address, Charindex(',', FullName)+1, 7) = 'Miskolc'
+
 #### How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
+
+-----------------------------------------------------------------------------------------------------------------------
 
 ### HTML & CSS
 
@@ -221,29 +310,52 @@ HTML is a markup language to give the browser orders what to do and how to do it
 XML is a way to store data and allow communication between programs
 XHTML is an XML based HTML, it is the same as HTML but with the rules of XML
 #### How to include a JavaScript file in a webpage?
+
 <script src="myscripts.js"></script>
 <script>console.log('This is how');</script>
 
 #### How to include a CSS file in a webpage?
+
 <link rel="stylesheet" href="styles.css">
 into the head
+
 #### How to select an element using its id in CSS?
+
 #elementId
 
 #### How to select elements using their class in CSS?
+
 .elementClass
+
 #### How to select elements which have the ‘alpha’ and ‘beta’ classes in CSS?
+
 .apha .beta
+
 #### How to select all list items in all ordered lists on the page in CSS?
+
 ul li
+
 #### How to select elements using their attributes in CSS?
+
 [attribute]
+
 #### What are UX and UI?
+
 UX is user experience 
 UI is user interface
 UX is first then UI but nothing without the other
 Ux is waht a user wants to do on a page, ui is what they want to see
+
 #### Please list some points that an application should fulfill to have good UX.
+
+Design should focus on the user
+website should be able to scanned not read: infographics and buttons not as text but as icons
+simplicity and clarity: buttons should be easy to understand
+Useful
+useable
+findable
+credible
+
 #### What is XML, XSLT, DTD?
 #### What is the difference between HTML and XML?
 HMTL is markup language that the browser  knows
@@ -252,8 +364,19 @@ XML is a markup language that stores data and is for other pages to use
 ### Javascript
 
 #### What is javascript?
+
 it is the default scripting language for browsers, which can access most of the browsers functions
+
 #### When to use AJAX? Bring examples of its usage.
+
+Asynchronous javascript
+it is when you dont want to wait on something(loading of a data form database) for something else to work('being able to load another page')
+like 
+
+element.addEventListener('click', loadOtherPage);
+and then you can load another page, while clicking the more button you could start another cycle of loading data
+element.addEventListener('click', loadMoreData);
+
 #### What is DOM and how to manipulate it from Javascript?
 #### What are events and how/why to use them in Javascript?
 #### What is event bubbling/capturing? How would you use it?
@@ -264,18 +387,27 @@ it is the default scripting language for browsers, which can access most of the 
 ### Version control
 
 #### What type of branching strategy would you use?
+
 I would make a different branch for every feature the end product has,  and when taht feature is done I would make a pull request to the development branch
+
 #### What would you do if you find a bug on the production code (master branch)?
+
 I would revert to the version which doesnt have the bug, make a different branch that aims to fix the bug and when thats done rebase
+
 #### How can you move changes from one branch to another in GIT?
+
 with rebase, or merge. If you want commits as well you use rebase
+
 #### How does a VCS help with code reviews?
+
 On code reviews this way the reviewer can have a better understanding of how the programmer worked
 The reviewee can share their code easier
 
 #### What is your favorite git command? Why?
+
 git merge, because that's why git is so useable. If you are working in a team and on different branches then you use this a lot
 and it really saves time compared to what you should do if you don't have this command
+
 #### What does remote/local mean in Git? 
 remote is what's on the online/not local repository(github servers for example)
 local means whats on your computer physically and not on the shared repository
@@ -283,10 +415,17 @@ local means whats on your computer physically and not on the shared repository
 ### DevOps
 
 #### Why is it good to use a package manager software?
+
+because you dont have to manage your packages by hand but automated and more quickly, more securely (no typos )
+
 #### Why is it good to use a virtual environment for a project?
+
+because you can define a vertain requirement to a specific project, and can handle different version of software than other computers, or even yours have.
+The project will become independent of current newest version of softwares
 
 Because this way you can simulate different version of support programs than what's on your computer
 And because this way you can ensure that you work with the proper version - requirements.txt you can specify which version
+
 ### Networks
 
 #### What kind of HTTP status codes do you know?
@@ -306,12 +445,34 @@ And because this way you can ensure that you work with the proper version - requ
 ## Software Development Methodologies
 
 #### What kind of software development methodologies do you know? What are the main features of these?
+
+Agile - from backlog tasks go into an iteration cycle, and a feedback mechanism. It allows less errors, bugs, risks.
+it allows the developers to release iterations, and based on feedback correct it. It needs real time communication, and users often lack information about the current iteration
+
+DevOps improves time to market, lowering the failure rate of new releases, and it shortens the time between fixes. They do it with automated release deployment. It is cost effective, smooth, and quick
+Although not all users want aumotated updates, and certain industries have regulations on testes
+
+waterfall - linear project structure. It is easy to understand and manage, easy to lead, doesnt require too much experience.
+but its often slow and costly because of its rigid structure
+
 #### What are the SCRUM roles?
 
-scrum master - helps and leads the development with scrum
-product owner - 
-scrum team - 
+scrum master - helps and leads the development with scrum, gives/takes positions, roles in the management, defines tasks and holds the scrum meetings
+product owner - the customer that wants to see results preferably regularly, see advances of the project
+scrum team - the developers writing the code
 #### What are the SCRUM ceremonies?
+
+meetings that are unique to scrum teams. Scrum ceremonies ensure that everyone is in-sync.
+
 #### What are the SCRUM artifacts?
+
+Product backlog, sprint backlog, product increment
+
 #### What is the main goal of a retrospective meeting?
+
+It is to find errors in humans, or advantages of dev team members, talk through the closed project so everyone can learn from it
+
 #### Explain, when would you recommend to use the waterfall methodology?
+
+when the project only has parts that are based on the done parts
+
