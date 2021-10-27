@@ -135,7 +135,28 @@ switch(expression) {
 it takes an expression, and if it equals a case then the proper line will run
 
 #### How to achieve a switch-case-like structure in Python?
+
+I would use a function, inside the function a dictionary which includes the corrisponding values
+
 #### Explain variable scoping in Python!
+
+global
+function
+local
+
+variable scoping depends on indentation in python
+global variables can be used at any function, and they can be defined using the global keyword
+function inside functions like this
+
+def a():
+	x = 1
+	def b():
+		print(x)
+
+	will print 1 because it sees the aboce functions x variable
+otherwise its local, and it can be seen in the function only.
+the same with loops
+
 #### What’s the difference between const and var in JavaScript?
 #### How the list comprehension looks like in Python?
 #### How the “ternary expression” looks like in Python?
