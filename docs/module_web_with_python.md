@@ -43,7 +43,15 @@ an sql injection is when a user doesnt use input fields properly, and inputs sql
 an application can be protected by writing sql queries in a secure way inside the application. Frameworks usually have their own solutions to this problem. 
 
 
-#### What is XSS? How to protect an application against it? ----------------------------------------------------
+#### What is XSS? How to protect an application against it?
+
+Cross site scripting
+it is when the user can manipulate an input and thus can make the server to run his code instead of the proper one
+to prevent this:
+- always check input before running scripts on the server
+- encode data on output
+- use appropiate content headers
+
 #### How to properly store passwords?
 
 store not the password, but the encrypted version of it inside the database. it usually has a decrypt method to it.
@@ -117,6 +125,7 @@ O(n^2) means it is  exponential
 
 ### Procedural
 #### How the CASE condition works in SQL?
+
 SELECT result_variable
 CASE
     WHEN condition1 THEN result1
@@ -229,11 +238,25 @@ examples are eventlisteners: a function is run when an event occurs and it is pa
 
 #### What is a Python decorator? How does it work? Tell some examples of its usage.
 
-------------------------------------------------------------------------------------------------------------------------
+it is a function that takes a function as an argument.
+it can be written above a fucntion like @decorator
+so what it does in the context
+def decorator(func):
+	print('a')
+	func()
+	
+@decorator
+def p():
+	print('b')
+
+is this: it runs as a function that took the below function as argument
+output will be: a then b.
+it is used to create connection to databases every time we get or manipulate data on them.
+or to jsonify data everytime we send them to javascript.
 
 #### What is the difference between synchronous and asynchronous execution?
 
-synchronous is run sequentially, line after line, asynchrnonous is run on a different 
+synchronous is run sequentially, line after line, asynchrnonous is run on a different
 
 ## Programming languages
 
@@ -249,6 +272,7 @@ You could simply advertise your database connection address and port number on a
 With distinct you can obliterate matching results and only select them once
 
 #### Talk about the behavior/goal of these base SQL clauses: WHERE, GROUP BY, HAVING, ORDER BY?
+
 Where takes an expression which if true to a row it appends it to the result
 group by make rows sort of merge into matching data, which then hold a whole other lot of columns data
 having is when we want to give a criteria on the group rather than the data inside it
@@ -264,7 +288,7 @@ min max, avg
 
 #### What kind of JOIN types do you know in SQL? Could you give examples?
 
-lefjoin
+left join
 right join
 inner join
 outer join
@@ -275,25 +299,31 @@ from customer left join sales on custumer.id = sales.customer_id;
 #### What are the constraints in sql?
 
 on a database you can constrain data, either tagging it as foreign key so you cannot just delete it because it has a relation,
-or constrain it so it can be of a certain type. 
+or constrain it so it can be of a certain type.
 
 #### What is a cursor in SQL? Why would you use one?
 
----------------------------------------------------------------------------
+cursor is a temporary memory allocation to a user when the user does data manipulation on the database
+it can only reference one row at a time, but can be set to another one
+cursor enables the sequential processing of rows in a result set
 
 #### What are database indexes? When to use?
 
---------------------------------------------------------------------------
+it is a data structure that allows faster access to data at the cost of needing more space.
+it is useful when you have a big database which should service a lot of users fast.
 
 #### What are database transactions? When to use?
 
---------------------------------------------------------------------------
+it is a method of keeping track of every data change in the database.
+If one client has failed to transact, then the transaction is considered a fail.
+I would use it to make sure that the database is secure, stable, and i can keep track of the changes.
+If anything happens to the databases integrity or security, I could always recheck the log and revert to the last proper version of it.
 
 #### What kind of database relations do you know? How to define them?
 these are to represent how data ina  table is coorelated to another table
-one-one
-many-many
-one-many
+one-one father - mother
+many-many children - teachers
+one-many mother - children
 
 #### You have a table with an “address” field which contains data like “3525, Miskolc, Régiposta 9.” (postcode, city, street name and address). How would you query all records related to Miskolc?
 select * from table
@@ -301,14 +331,16 @@ where substring(address, Charindex(',', FullName)+1, 7) = 'Miskolc'
 
 #### How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
 
------------------------------------------------------------------------------------------------------------------------
+With transactions I would always write to a log outside of the application
 
 ### HTML & CSS
 
 #### What’s the difference between XML, XHTML and HTML?
+
 HTML is a markup language to give the browser orders what to do and how to do it
 XML is a way to store data and allow communication between programs
 XHTML is an XML based HTML, it is the same as HTML but with the rules of XML
+
 #### How to include a JavaScript file in a webpage?
 
 <script src="myscripts.js"></script>
@@ -357,6 +389,15 @@ findable
 credible
 
 #### What is XML, XSLT, DTD?
+
+xml is the alternative for transmitting data to json
+it works with tags as well
+
+xlst is a styling language which builds other documents from xml, such as other xml documents, or html documents. The original documents contents are unchanged
+
+dtd is what defines the linked documents contents rules. Such as <!doctype>
+
+
 #### What is the difference between HTML and XML?
 HMTL is markup language that the browser  knows
 XML is a markup language that stores data and is for other pages to use
@@ -378,9 +419,31 @@ and then you can load another page, while clicking the more button you could sta
 element.addEventListener('click', loadMoreData);
 
 #### What is DOM and how to manipulate it from Javascript?
+
+Document object model
+a tree object model, html elements are objects with properties
+js:
+document.getElementById(id).innerHTML
+you have to reference the html object, then you can either remove it, manipulate it, or create it inside any element.
+
 #### What are events and how/why to use them in Javascript?
+
+events are things that occur when the user interacts with the page. 
+they are used like this:
+html element gets an event listener with the AddEventListener('eventType', callback)
+and then the callback function will run. it has the parameter of the event that was fired, and with the target property we can reference it.
+
 #### What is event bubbling/capturing? How would you use it?
+
+bubbling is when on the html tree we catch the event on the innermost element and propagate to the outer elements,
+capturing is when the outermost is handled first
+addEventListener(type, listener, useCapture) by default it is bubbling, but you can set it to true
+
 #### What is JSON and how do we use it?
+
+it is a format for representing structured data. it is used for data transmitting in web applications
+we used it as a dictionary, it has key-value pairs.
+we get a return value from a server route in string format, we make json from it with the jsonify() function, and use the data as we would have in the server
 
 ## Software engineering
 
@@ -429,18 +492,89 @@ And because this way you can ensure that you work with the proper version - requ
 ### Networks
 
 #### What kind of HTTP status codes do you know?
+
+200 - Ok
+300 - reroute - other routes are necessary to finish the request
+400 - not found, bad syntax
+500 - the succesful request was failed by the server
+
 #### What is a API?
+
+application program interface. it allows two application to interract with each other.
+it is kind of a program package that allows the user or the server to interract with something else more fast, more easly, more simply.
+
 #### What is REST API?
+
+it is not a protocol, but a few restraints of the application architecture.
+
+- server client architecture and http request as a median
+- it is stateless - no user information is stores between two get request and each request is separate and unconnected
+- uniform interface between components so that information is transferred in a standard form
+
+
 #### What is JSON? When to use?
+
+data transmission structure, use it when you want to make a useful object that is meaningful to the other client/server and can work with that
+
 #### What is TCP/IP? What layers does it define, what are they responsible for?
+
+the application layer-  an abstraction layer that specifies the shared communications protocols and interface methods used by hosts
+transport layer -  provides transparent transfer of data between end users
+network layer - It handles the service requests from the transport layer and further forwards the service request to the data link layer
+data link layer - the protocol of the transmission, tcp in this instance
+physical layer - phisical characteristics of the network, frequency, voltage, ethernet, etc
+
 #### What’s the difference between TCP and UDP?
+
+TCP is for secure and stable transmission - like logins and important data
+UDP is for fast transmission that doesn't need to be spotless - like video streams
+
 #### How does an HTTP Request look like? What are the most relevant HTTP header fields?
-#### How does an HTTP Response look like? What are the most relevant HTTP header fields?
+
+
+content type
+authorization
+accept
+cookie
+
+example:
+
+POST /cgi-bin/process.cgi HTTP/1.1
+User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)
+Host: www.tutorialspoint.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: length
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: Keep-Alive
+
 #### What is DNS? How does it work?
+
+it is like google.com
+it makes requests easier for the users, it reduces the ones and zeros to keep in mind when requesting a website.
+it works like this:
+a datacentre runs a dns server which keeps track of which dns is on which ip address. it is like a dictionary.
+then you send the request of your site to it, it signals to the site, the site signals back, you get your data back.
+You don't have to remember ip addresses, the dns does it for you.
+
 #### What is a web server?
+
+it is a program that can "serve" client requests to its defined routes.
+
 #### Explain the client-server architecture.
+
+there is a server, which awaits for client requests. If they request a certain thing it processes the request, and will return with an answer/response accordingly.
+there are multiple clients,
+that are sending requests to the server, and will act according to the response of the server. It is a one to many relation, and it can be happening simulatiniously, independently from the 
+architecture of the device the request was sent from.
+
 #### What would you use a session for?
+
+for keeping user related data as long as they use the browser. Like shopping cart to remember what they put in, username to distinguish them.
+
 #### What would you use a cookie for?
+
+to save information about the user on their local machine. Like preference of the styling of the site, what kind of ads they want to see.
 
 ## Software Development Methodologies
 
@@ -460,6 +594,7 @@ but its often slow and costly because of its rigid structure
 scrum master - helps and leads the development with scrum, gives/takes positions, roles in the management, defines tasks and holds the scrum meetings
 product owner - the customer that wants to see results preferably regularly, see advances of the project
 scrum team - the developers writing the code
+
 #### What are the SCRUM ceremonies?
 
 meetings that are unique to scrum teams. Scrum ceremonies ensure that everyone is in-sync.
