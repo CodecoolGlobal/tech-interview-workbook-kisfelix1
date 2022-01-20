@@ -6,16 +6,37 @@
 
 #### What does 'fail fast' mean in terms of exception handling? Why is it a good practice?
 
+in a case of failure the whole system will fail.
+
 ## Computer Science
 
 ### Data structures
 
 #### How to find the middle element of singly linked list in O(n)?
+
+create a pointer at the head of the list, and iterate over the list, until the end to find the length, then point at the end again. Get the linked element length/2 times.
+
 #### Given an array of integers going from 1 to 100 (both inclusive) there is a duplicated entry. How to find it?
+
+if the array is not sorted, sort it.
+iterate over the array, and check if the current element is bigger than the previous one, if not, there is the duplicate.
+
 #### What is a linked list? How to find if a linked list has a loop?
+
+a linked list has an element called the head, and a method with which you can reach to another element.
+if you declare the head element to an outer variable and iterate through the list, you can check if the current element is the same as the one declared. If the list comes to an end, it doesnt have a loop.
+
 #### What is the Big O time complexity of the common operations in an ArrayList, LinkedList, HashMap? And of a bubble sort, quicksort, finding items in a Binary Search tree?
+
+------------------------------------------------------------------------------------------
+
 #### How does HashMap work?
+
+------------------------------------------------------------------------------------------
+
 #### Why is it important for keys in a map to have an immutable type? (Consider String for example.)
+
+------------------------------------------------------------------------------------------
 
 ### Database
 
@@ -36,8 +57,17 @@
 ### Object-oriented
 
 #### What is a class?
+
+a class is a template for objects that share similar behaviours/properties
+
 #### What is an object?
+
+an object is an instance of a class, through which we can call methods and can handle data on an instance basis.
+
 #### What is a constructor?
+
+constructor of a class is a method which runs on instantiation. It is the first method to run.
+
 #### Do we require parameter for constructors?
 #### What is an interface?
 #### What are access modifiers?
