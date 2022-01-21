@@ -32,27 +32,44 @@ if you declare the head element to an outer variable and iterate through the lis
 
 #### How does HashMap work?
 
-------------------------------------------------------------------------------------------
+A Hashmap is used for storing key-value pairs. We can get a List by parameterizing by key. We find this in exponentioaly short time, because we use some hash function to store the key initially. Then we check if the list containts the key we want to get, and that is has a value in it. If so, we return the element.
 
 #### Why is it important for keys in a map to have an immutable type? (Consider String for example.)
 
-------------------------------------------------------------------------------------------
+If keys in the map were mutable, then after mutating them, their hashcode method might return a different integer than before. Since map uses the hashcode of the key for looking up a given entry, it would not find the entry anymore, beacuse its hashcode value now differs.
 
 ### Database
 
 #### How can you connect your application to a database server? What are the possible ways?
+
+You could use REST, and await response. Behind the backend we can create a connection to the server, get data by executing an sql command, get(or not) a return value, and close the connection.
+
 #### What do you know about database normalization?
 
 ### Other
 
 #### What is a garbage collector, in a nutshell?
 
+it checks in once in a while throguh the running program if a variable has allocated memory which won't be used after. If such variable exists, it "collects the garbage" by resolving the variable.
+
 ## Programming paradigms
 
 ### Procedural
 
 #### What is casting? What is the difference between up vs downcasting?
+Downcasting:
+Animal animal = new Dog();
+Dog castedDog = (Dog) animal;
+
+Up:
+Animal animal = (Animal) animal
+
+casting is when you force an object to be of another reference type.
+
 #### Which order should we catch the exceptions? Why?
+
+ when catching exceptions you want to always catch the most specific first and then the most generic (as RuntimeException or Exception).
+ So we and the program know what went wrong exactly.
 
 ### Object-oriented
 
@@ -69,29 +86,103 @@ an object is an instance of a class, through which we can call methods and can h
 constructor of a class is a method which runs on instantiation. It is the first method to run.
 
 #### Do we require parameter for constructors?
+
+We can require parameters, but it is not compulsory
+
 #### What is an interface?
+
+It is an uninstantiable class that has method signatures in it, which must be implemented by the class that implements it.
+
 #### What are access modifiers?
+
+public, protected, private -these are keywords that regulates which classes see the methods, variables.
+
 #### What is data hiding?
+
+-----------------------------------------------------
+
 #### Can a static method use non-static members?
+
+No, it wouldn't make sense because a static method runs the same no matter of outside variables value
+
 #### What is the difference between hiding a static method and overriding an instance method?
 #### Define the following terms: Instantiation, Attribute, Method
+
+instantiation is when we create an instance with the new keyword. 
+Attribute is a property of the created instance.
+Method is an algorithm which you can call/invoke.
+
 #### Could we access a static variable (or method) from a non-static method? Why?
+
+yes, the goal is to run the same in each case.
+
 #### Could we access a non-static variable (or method) from a static method? Why?
+
+No, it wouldn't make sense because a static method runs the same no matter of outside variables value
+
 #### How many instances you have of a static variable of a given class?
+
+one
+
 #### Why is it not a good practice to write a lot of static methods?
 #### What are the features of static attributes and static methods of a class? What are the benefits, when to use them?
 #### What is the ‘this’ reference?
+
+This references the current object we are in.
+
 #### What are base class, subclass and superclass?
 #### Draw an object oriented family (as entities, with relations) on the whiteboard.
 #### Difference between overloading and overriding?
+
+Overloading is making multiple signatures from the method with the same name, overriding is 
+
 #### What are the Object Oriented Principles? Explain the concepts with realistic examples!
+
+Abstraction
+Using abstract class/Interface we express the intent of the class rather than the actual implementation
+Inheritance
+expresses is-a has-a relationships. Dog is-a Animal.
+Polymorphism A class has many forms, we can write a code that works on the superclass, and it will work with any subclass type as well. Also we can reference an obect by an interface it implements
+Encapsulation
+Restricting access to public methods
+
 #### What is method overloading?
+
+two methods with same name and different signatures, the proper one matching the usage will run
+
 #### What is method overriding?
+
+an inherited class overrides method wth same name/signature, and the one that overrides it runs.
+
 #### Explain how object oriented languages attempt to simplify memory management for Programmers.
+
+----------------------------------------------------------------
+
 #### Explain the “Single Responsibility” principle!
+
+A class should have only one reason to change. A class should solve one problem, but that problem fully.
+
 #### What is an object oriented program? Explain, show.
+
+We write program in objects, we use methods throguh objects and fields.
+
+Object a = new Object();
+a.callAMethod();
+System.out.println(a.property);
+
+
 #### How do you make a class immutable? What do you need to watch out for?
+
+Declare the class as final so it can't be extended.
+Make all fields private so that direct access is not allowed.
+Don't provide setter methods for variables.
+Make all mutable fields final so that its value can be assigned only once.
+Initialize all the fields via a constructor performing deep copy.
+Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
+
 #### How many instances can be created for an abstract class?
+
+none
 
 ## Programming languages
 
@@ -101,12 +192,24 @@ constructor of a class is a method which runs on instantiation. It is the first 
 #### If you have a variable, that shall store a positive whole number between 0 and 200, what primitive type would you use to store it?
 #### What is the "golden rule" of variable scoping in Java? What is the lifetime of variables?
 #### What is the purpose of the ‘equals()’ method?
+
+It compares objects by property values, not memory addresses
+
 #### What is the difference between '==' and 'equals()'?
+
+equals compares objects by property values, == by memory addresses. Primitive values are the same with both
+
 #### What does the ‘static’ keyword mean?
 #### Why is the main() method declared as static? Explain.
 #### What is the default access modifier in a class?
 #### What is the JVM?
+
+Java virtual machine, which runs java programs. It allows java to be multiplatform
+
 #### What is the difference between the JRE and the JDK?
+
+Runtime environment and developer kit - one runs the program, the other compiles it and runs it.
+
 #### What is the difference between long and Long?
 #### Can a long store bigger numbers than a Long?
 #### What kind of packages do you know under java.util.* ? Bring at least 3 examples.
@@ -118,6 +221,9 @@ constructor of a class is a method which runs on instantiation. It is the first 
 #### How do you prevent developers from changing the value of a variable?
 #### Think about money ;) How would you store a currency value, that shall support decimal parts? Think it through again, and try to think outside of the box!
 #### What happens if you try to call something, that you have no access to, because of data hiding?
+
+compile error, it fails to resolve symbol, because it doesnt recognize what it mustn't
+
 #### What happens if you try to delete/drop an item from an array, while you are iterating over it?
 #### What happens if you try to delete/drop/add an item from a List, while you are iterating over it?
 #### What happens if you try to add an item to the end of an array, while you are iterating over it?
@@ -125,16 +231,50 @@ constructor of a class is a method which runs on instantiation. It is the first 
 #### Which interfaces extend the Collection interface in Java. Which classes?
 #### What is the connection between equals() and hashCode()? How are they used in HashMap?
 #### What is the difference between checked exceptions and unchecked exceptions? Could you bring example for each?
+
+
+
 #### What is Error in Java and how does it relate to Exception?
+
+Exceptions and errors both are subclasses of Throwable class. The error indicates a problem that mainly occurs due to the lack of system resources and our application should not catch these types of problems
+
 #### When does 'finally' block run? What it is used for? Could you give an example from your projects when you would use 'finally'?
 #### What is the largest number you can work with in Java?
-#### When you use method overriding, can you change the access level of the method, from protected to public? Why?When you use method overriding, can you change the access level of the method, from public to protected? Why?
+
+2147483647
+
+#### When you use method overriding, can you change the access level of the method, from protected to public? Why?
+
+Yes, because protected is a stricter modifier and you can always widen the access modifier, if it is still valid in the inheritance. Lets say you have a method protected communicate in LivingThings and you have public communicate in Dogs.
+You ordered dog to be callable to communicate, while Not all animals can be comunicated at.
+
 #### Can the main method be overridden? Explain your answer!
+
+No, we cannot override main method of java because a static method cannot be overridde
+
 #### When you use method overriding, can you throw fewer exceptions in the subclass than in the parent class? Why?
+
+No, because it is in the signature, you cannot take anything from the signature.
+
 #### When you use method overriding, can you throw more exceptions in the subclass than in the parent class? Why?
+
+Yes, because it doesnt violate the signiture
+
 #### What does "final" mean in case of a variable, method or a class?
+
+in a variable that you cannot alter its memory address.
+a final method cannot be overriden in the subclasses.
+a final class cannot be inherited by other classes
+
 #### What is the super keyword?
+
+it call the inherited classes method/variable/constructor
+
 #### What are “generics”? When to use? Show examples.
+
+when after a class name  there is <T>, which is good if you want to use your class with different value types.
+for example List<String>
+
 #### What is the benefit of having “generic” containers?
 #### Given two Java programs on two different machines. How can you communicate between the two? What are the possible ways?
 #### What is an annotation? What can be annotated and how? Show examples.
