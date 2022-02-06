@@ -27,8 +27,13 @@ a linked list has an element called the head, and a method with which you can re
 if you declare the head element to an outer variable and iterate through the list, you can check if the current element is the same as the one declared. If the list comes to an end, it doesnt have a loop.
 
 #### What is the Big O time complexity of the common operations in an ArrayList, LinkedList, HashMap? And of a bubble sort, quicksort, finding items in a Binary Search tree?
-
-------------------------------------------------------------------------------------------
+                Insert on index         Search by value         get by index        remove by value
+ArrayList           O(N)                        O(N)                 O(1)                   O(N)
+LinkedList          O(N)                        O(N)                 O(N)                   O(N)
+HashMap             O(1)                        O(1)                 O(1)                   O(1)
+bubble sort         O(n^2)
+quicksort           O(nLogn)
+binary search tree   O(n)
 
 #### How does HashMap work?
 
@@ -45,6 +50,8 @@ If keys in the map were mutable, then after mutating them, their hashcode method
 You could use REST, and await response. Behind the backend we can create a connection to the server, get data by executing an sql command, get(or not) a return value, and close the connection.
 
 #### What do you know about database normalization?
+
+----------------------------------------------------
 
 ### Other
 
@@ -99,13 +106,17 @@ public, protected, private -these are keywords that regulates which classes see 
 
 #### What is data hiding?
 
------------------------------------------------------
+Data hiding ensures exclusive data access to class members and protects object integrity by preventing unintended or intended changes
 
 #### Can a static method use non-static members?
 
 No, it wouldn't make sense because a static method runs the same no matter of outside variables value
 
 #### What is the difference between hiding a static method and overriding an instance method?
+
+When you override a method, you still get the benefits of run-time polymorphism, and when you hide, you don't.
+You can make a static method in a subclass, but that won't ensur polymorphism behaviour
+
 #### Define the following terms: Instantiation, Attribute, Method
 
 instantiation is when we create an instance with the new keyword. 
@@ -125,13 +136,35 @@ No, it wouldn't make sense because a static method runs the same no matter of ou
 one
 
 #### Why is it not a good practice to write a lot of static methods?
+
+It is bad for Object Oriented design. The point of objects are that they are self-contained, they store data on an instance level. If you use a lot of static methods, you don't use behaviours that make it easier for build a system built on objects.
+
 #### What are the features of static attributes and static methods of a class? What are the benefits, when to use them?
+
+They are stored on a class level. They can be called even without instantiation through the class reference. 
+They run the same each time
+Use them when:
+You need to use some data as constant. 
+You need to share some data between instances and this data can be changed.
+You need to separate extremely reusable code
+You need to create a functionality that is tightly coupled with the implementation but it isn't linked with any instance (ENUMS)
+
+
 #### What is the ‘this’ reference?
 
 This references the current object we are in.
 
+
 #### What are base class, subclass and superclass?
+
+base class is a class from which other classes are derived.
+sub class is the cass that derives from a class.
+super class is the class from which the previous class derives directly.
+
 #### Draw an object oriented family (as entities, with relations) on the whiteboard.
+
+---------------------------
+
 #### Difference between overloading and overriding?
 
 Overloading is making multiple signatures from the method with the same name, overriding is 
@@ -156,7 +189,7 @@ an inherited class overrides method wth same name/signature, and the one that ov
 
 #### Explain how object oriented languages attempt to simplify memory management for Programmers.
 
-----------------------------------------------------------------
+Garbage collector. It checks if a variable is still referenced through the program, and saves the allocated memory.
 
 #### Explain the “Single Responsibility” principle!
 
@@ -188,9 +221,16 @@ none
 
 ### Java
 
-#### What is autoboxing and unboxing?
+#### What is autoboxing and unboxing? 
+Autoboxing: the java compiler converting primitive types to their reference selves. If the conversion goes the other way, this is called unboxing.
 #### If you have a variable, that shall store a positive whole number between 0 and 200, what primitive type would you use to store it?
+
+int. short would be better because it can contain numbers from -32768 to +32767, but more programmer knows int so I would adapt
+
 #### What is the "golden rule" of variable scoping in Java? What is the lifetime of variables?
+
+The golden rule is that static code cannot access non-static members by their simple name
+
 #### What is the purpose of the ‘equals()’ method?
 
 It compares objects by property values, not memory addresses
@@ -200,8 +240,18 @@ It compares objects by property values, not memory addresses
 equals compares objects by property values, == by memory addresses. Primitive values are the same with both
 
 #### What does the ‘static’ keyword mean?
+
+it means that the variable/method is handled on a class basis. It can be altered, but if you alter it with different instances, then it will alter for all instances.
+
 #### Why is the main() method declared as static? Explain.
+
+Because it is directly called by the JVM without creating an object of the class in which it is declared. When java runtime starts, there is no object of class present.
+JVM can this way just start the main method, and not allocating it memory.
+
 #### What is the default access modifier in a class?
+
+package-private, which means that all members are visible within the same package
+
 #### What is the JVM?
 
 Java virtual machine, which runs java programs. It allows java to be multiplatform
@@ -211,34 +261,113 @@ Java virtual machine, which runs java programs. It allows java to be multiplatfo
 Runtime environment and developer kit - one runs the program, the other compiles it and runs it.
 
 #### What is the difference between long and Long?
+
+long is a primitive type thus must have a value, Long is reference type thus can be null.
+
 #### Can a long store bigger numbers than a Long?
+
+No.
+
 #### What kind of packages do you know under java.util.* ? Bring at least 3 examples.
+List
+Comparator
+HashMap
+
 #### What are the access modifiers in Java? Which one could we use for class?
+class --> public
+
+protected
+private
+
 #### Can an “enum” contain methods in Java? Explain.
+
+yes. It is a class like any other. You can use a method to give real value to enum values.
+
 #### When would you use a private/protected/public attribute? What is the difference?
+
+private is valid in a "package" like a class- it is for exclusive fields/methods that only the class uses.
+protected is like private but subclasses also use it.
+public is that everyone has access to.
+
 #### How do you prevent developers from subclassing a class?
+
+using the final keyword
+
 #### How do you prevent developers from overriding a method in a subclass?
+
+1. using the static keyword
+2. using the final keyword
+3. using the private access modifier
+
 #### How do you prevent developers from changing the value of a variable?
+
+using the final keyword. Although it would mean at reference types that the fields/values inside are still changable.
+We would need to make that class immutable to prevent that, and that would mean:
+Declare the class as final so it can't be extended.
+Make all fields private so that direct access is not allowed.
+Don't provide setter methods for variables.
+Make all mutable fields final so that its value can be assigned only once.
+Initialize all the fields via a constructor performing deep copy.
+Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
+
 #### Think about money ;) How would you store a currency value, that shall support decimal parts? Think it through again, and try to think outside of the box!
+
+I would store it in String. It is immutable, so security is a plus. If we would store it in double, how would we know what type of currency that is? Yuan? Dollars? Zloty? This way we can keep track of type. 
+Also we could create a class system.
+Money - abstract base class.
+Dollar - subclass. and so on. We could keep track of the current sign for that money, or the current value on a base credit system.
+
 #### What happens if you try to call something, that you have no access to, because of data hiding?
 
 compile error, it fails to resolve symbol, because it doesnt recognize what it mustn't
 
 #### What happens if you try to delete/drop an item from an array, while you are iterating over it?
+
+it runs perfectly, because it is a static length container
+
 #### What happens if you try to delete/drop/add an item from a List, while you are iterating over it?
+
+it runs to error, because it is dynamic lengthed container and if you iterate on the 10th element when there is 9 then it is a problem
+
 #### What happens if you try to add an item to the end of an array, while you are iterating over it?
+
+Then why am I iterating over it if i try to add one to the END?
+
 #### If you need to access the iterator variable after a for loop, how would you do it?
+
+I would declare it outside the loop.
+
 #### Which interfaces extend the Collection interface in Java. Which classes?
+
+Iterable
+
+List
+Set
+Queue
+SortedSet
+Deque
+NavigableSet
+
 #### What is the connection between equals() and hashCode()? How are they used in HashMap?
+
+The basic rule of the contract states that if two objects are equal to each other based on equals() method, then the hash code must be the same.
+
+In HashMap, hashCode() is used to calculate the bucket and therefore calculate the index. equals method is used to check that 2 objects are equal or not.
+
 #### What is the difference between checked exceptions and unchecked exceptions? Could you bring example for each?
 
-
+A checked exception is caught at compile time whereas a runtime or unchecked exception is, as it states, at runtime
+A checked exception must be handled either by re-throwing or with a try catch block, whereas an unchecked isn't required to be handled.
 
 #### What is Error in Java and how does it relate to Exception?
 
 Exceptions and errors both are subclasses of Throwable class. The error indicates a problem that mainly occurs due to the lack of system resources and our application should not catch these types of problems
 
 #### When does 'finally' block run? What it is used for? Could you give an example from your projects when you would use 'finally'?
+
+EveryTime, it doesnt matter if we caught an exception or not. It is use to let the program run normally no matter what exception happens.
+I would have used it in a webshop, when i want to ensure that no matter what parameter the users write in the query parameters it will give feedback to the user
+
 #### What is the largest number you can work with in Java?
 
 2147483647
@@ -276,8 +405,19 @@ when after a class name  there is <T>, which is good if you want to use your cla
 for example List<String>
 
 #### What is the benefit of having “generic” containers?
+
+Because this way you can store several types in one written class
+
 #### Given two Java programs on two different machines. How can you communicate between the two? What are the possible ways?
+
+POST/GET/PUT/DELETE HTTP requests
+
+Or you could set a remote database/file that is accessible by the two programs, and you write in that file by the two programs, then they communicate indirectly
+
 #### What is an annotation? What can be annotated and how? Show examples.
+
+A form of metadata. They have no direct effect on the operation of the code. They can be used to detect compile errors, or warnings, to generate code, or to be examined through runtime. 
+Classes, methods, variables, parameters and Java packages may be annotated
 
 ### C&#35;
 
